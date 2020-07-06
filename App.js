@@ -71,6 +71,7 @@ export default function App() {
   ]);
 
   const [background, setBackground] = useState(list[0].img);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const _renderItem = ({item, index}) => {
     return (
@@ -120,8 +121,17 @@ export default function App() {
                 inactiveSlideOpacity={0.5}
                 onSnapToItem={index => {
                   setBackground(list[index].img);
+                  setActiveIndex(index);
                 }}
               />
+            </View>
+
+            <View style={styles.moreInfo}>
+              <View style={{marginTop: 10}}>
+                <Text style={styles.movieTitle}>{list[activeIndex].title}</Text>
+                <Text style={styles.movieDesc}>{list[activeIndex].text}</Text>
+              </View>
+              <Icon name="queue" color="#FFF" size={30} />
             </View>
           </ImageBackground>
         </View>
@@ -199,5 +209,26 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: 15,
     top: 15,
+  },
+  moreInfo: {
+    backgroundColor: '#000',
+    width: screenWidth,
+    height: screenHeight,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    flexDirection: 'row',
+  },
+  movieTitle: {
+    paddingLeft: 15,
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#FFF',
+    marginBottom: 15,
+  },
+  movieDesc: {
+    paddingLeft: 15,
+    paddingRight: 15,
+    color: '#FFF',
+    fontSize: 20,
   },
 });
