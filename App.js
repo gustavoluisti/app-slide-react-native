@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   },
   carouselImg: {
     width: 200,
-    height: 300,
+    height: 350,
     alignSelf: 'center',
     borderRadius: 12,
     backgroundColor: 'rgba(0,0,0,0.5)',
