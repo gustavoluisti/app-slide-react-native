@@ -131,7 +131,15 @@ export default function App() {
                 <Text style={styles.movieTitle}>{list[activeIndex].title}</Text>
                 <Text style={styles.movieDesc}>{list[activeIndex].text}</Text>
               </View>
-              <Icon name="queue" color="#FFF" size={30} />
+
+              <TouchableOpacity style={styles.icon}>
+                <Icon
+                  name="queue"
+                  color="#FFF"
+                  size={30}
+                  style={styles.movieIcon}
+                />
+              </TouchableOpacity>
             </View>
           </ImageBackground>
         </View>
@@ -217,6 +225,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
     flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   movieTitle: {
     paddingLeft: 15,
@@ -230,5 +239,9 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     color: '#FFF',
     fontSize: 20,
+  },
+  movieIcon: {
+    marginRight: 15,
+    marginTop: 10,
   },
 });
